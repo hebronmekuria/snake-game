@@ -1,0 +1,58 @@
+/* App.css */
+
+
+
+body {
+  font-family: 'Arial', sans-serif; /* Change the font family to Arial */
+  margin: 0;
+  padding: 0;
+  
+}
+
+select {
+  font-size: large;
+  font-weight: 300;
+  padding: 8px;
+  border-radius: 5px;
+  border: 10px ;
+  font-family: 'Arial', sans-serif; 
+  
+}
+
+
+.placeholder-box {
+  height: 200px; /* Set a fixed height for the boxes */
+  margin: 10px;
+  overflow: scroll;
+  border: 3px solid rgb(25, 105, 197);
+  border-radius: 10px;
+}
+
+.placeholder-text {
+  padding: 10px;
+  overflow-y: auto; /* Enable vertical scrolling within the text box */
+  box-sizing: border-box;
+}
+
+/* Container for horizontal scrolling */
+.scroll-container {
+  display: flex;
+  overflow-x: auto;
+}
+.logo {
+  padding: 10px;
+}
+.logo img {
+  height:300px;
+  width: 5oopx;
+}
+.title-box {
+  position: sticky;
+  top: -20px; /* Adjust the position to overlap with the top border */
+  left: 10px; /* Adjust the left position as needed */
+  background-color: rgb(25, 105, 197);
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 10px;
+}
