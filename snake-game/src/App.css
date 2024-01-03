@@ -1,20 +1,11 @@
 /* App.css */
 
-
+/* ... (existing styles) */
 
 body {
   font-family: 'Arial', sans-serif; /* Change the font family to Arial */
-  
-}
-.logo {
-  position:absolute;
-  top:1%;
-  left: 25%;
-}
-.logo img {
-  height:300px;
-  width: 5oopx;
-
+  margin: 0;
+  padding: 0;
 }
 
 select {
@@ -22,43 +13,76 @@ select {
   font-weight: 300;
   padding: 8px;
   border-radius: 5px;
-  border: 10px ;
-  font-family: 'Arial', sans-serif; 
-  
+  border: 10px;
+  font-family: 'Arial', sans-serif;
 }
-
 
 .placeholder-box {
   position: relative;
-  margin-top: 50px;
-  height: 300px; /* Set a fixed height for the boxes */
+  height: 200px;
   margin: 10px;
   overflow: scroll;
   border: 3px solid rgb(25, 105, 197);
   border-radius: 10px;
+
+}
+
+.placeholder-box::-webkit-scrollbar {
+  display: none;
+}
+
+.placeholder-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.placeholder-box::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.placeholder-text::-webkit-scrollbar {
+  display: none;
+}
+
+.placeholder-text::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.placeholder-text::-webkit-scrollbar-thumb {
+  background: transparent;
 }
 
 .placeholder-text {
   padding: 10px;
-  overflow-y: auto; /* Enable vertical scrolling within the text box */
+  overflow-y: auto;
   box-sizing: border-box;
-  
 }
 
-/* Container for horizontal scrolling */
 .scroll-container {
   display: flex;
   overflow-x: auto;
 }
 
+.logo {
+  padding: 10px;
+  margin-right: 10px;
+  position: relative;
+  left: 25%;
+}
+
+.logo img {
+  height: 300px;
+  width: 500px;
+}
+
+
 .title-box {
   position:sticky;
-  left: 25% ;
+  left: 30% ;
   background-color: rgb(25, 105, 197);
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
-  width: 150px;
+  width: 100%;
   text-align: center;
   font-family: 'Arial', sans-serif; /* Change the font family to Arial */
   font-size: 20px;
