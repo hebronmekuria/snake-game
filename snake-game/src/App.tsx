@@ -122,7 +122,7 @@ import logo from "./logo.png";
     "Occupational Therapy",
     "Pharmacy",
     "Philosophy",
-    "Physical Therapy",
+    "Physical Therapy jobs",
     "Physics",
     "Political Science",
     "Psychology",
@@ -142,7 +142,9 @@ import logo from "./logo.png";
     "Wildlife Biology",
     "Women’s Studies",
     "Zoology"
-    ,"custodian"
+    ,"custodian",
+    "google jobs",
+    "tv"
   ];
 
   const handleMajorChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -154,9 +156,9 @@ useEffect(() => {
       if (selectedMajor) {
         try {
           const response = await axios.get(
-            `https://cors-anywhere.herokuapp.com/https://serpapi.com/search.json?q=${encodeURIComponent(
+            `https://cors-anywhere.herokuapp.com/https://serpapi.com/search.json?engine=google&q=${encodeURIComponent(
               `${selectedMajor}`
-            )}&api_key=${apiKey}`
+            )}&api_key=${apiKey}`   
           );
           setJobResults(response.data.organic_results);
         } catch (error) {
@@ -193,10 +195,10 @@ useEffect(() => {
         </div>
         {/* Wrap the boxes in a container with horizontal scrolling */}
         <div className="scroll-container">
-          {jobResults.slice(0, 3).map((job, index) => (
+          {jobResults &&jobResults.slice(0, 3).map((job, index) => (
             <div key={index} className="placeholder-box">
               <div className="title-box">{job.title}</div>
-              <p className="placeholder-text">{job.snippet}</p>
+              <p className="placeholder-text">{job.description  || job.snippet}</p>
             </div>
           ))}
         </div>
