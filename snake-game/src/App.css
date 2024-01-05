@@ -1,61 +1,90 @@
 /* App.css */
 
-
+/* ... (existing styles) */
 
 body {
-  font-family: 'Arial', sans-serif; /* Change the font family to Arial */
+  font-family: 'Arial Unicode MS', 'Arial', sans-serif;
   margin: 0;
   padding: 0;
-  
 }
 
 select {
-  font-size: large;
+  margin-left: 10px;
+  font-size: 25px;
   font-weight: 300;
-  padding: 8px;
+  padding: 10px;
+  border: 1px ;
   border-radius: 5px;
-  border: 10px ;
-  font-family: 'Arial', sans-serif; 
-  
+  font-family: 'Arial Unicode MS', 'Arial', sans-serif;
+  width: 200px; 
+  margin-top: 10px;
 }
 
-
 .placeholder-box {
-  height: 200px; /* Set a fixed height for the boxes */
+  position: relative;
+  height: 200px;
   margin: 10px;
-  overflow: scroll;
-  border: 3px solid rgb(25, 105, 197);
+  overflow:scroll; 
+  border: 2px dotted black; 
   border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+  background-color: #fff; 
+}
+
+.placeholder-box::-webkit-scrollbar {
+  display: none;
+}
+
+.placeholder-box::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.placeholder-box::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.placeholder-text::-webkit-scrollbar {
+  display: none;
+}
+
+.placeholder-text::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.placeholder-text::-webkit-scrollbar-thumb {
+  background: transparent;
 }
 
 .placeholder-text {
   padding: 10px;
-  overflow-y: auto; /* Enable vertical scrolling within the text box */
+  overflow-y: auto;
   box-sizing: border-box;
+  color: #333; 
 }
-
-/* Container for horizontal scrolling */
 .scroll-container {
   display: flex;
   overflow-x: auto;
 }
+
 .logo {
-  padding: 10px;
+  position: relative;
+  left: 30%;
+  margin-bottom: 10px;
 }
 .logo img {
-  height:300px;
-  width: 5oopx;
+  width: 500px;
 }
+
+
 .title-box {
-  position: sticky;
-  top: -20px; /* Adjust the position to overlap with the top border */
-  left: 10px; /* Adjust the left position as needed */
+  position:sticky;
+  left: 30% ;
   background-color: rgb(25, 105, 197);
   color: white;
   padding: 5px 10px;
-  border-radius: 5px;
-  width: auto;
-  inflow: auto;
-  
+  width: 100%;
+  text-align: center;
+  font-family: 'Arial Unicode MS', 'Arial', sans-serif;
+  font-size: 20px;
 }
 
