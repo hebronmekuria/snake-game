@@ -7,7 +7,6 @@ import logo from "./logo.png";
   const [selectedMajor, setSelectedMajor] = useState<string | null>(null);
   const [jobResults, setJobResults] = useState<any[]>([]);
   const apiKey = "5453bcb93d4fe3f86a1422daf97f29c7ab6be4f792791d89523a60893db38576";
-  const searchEngine = "google_jobs_listing";
 
   const majors: string[] = [
     "Accounting",
@@ -47,7 +46,7 @@ import logo from "./logo.png";
     "Linguistics",
     "Management",
     "Marketing",
-    "M     athematics",
+    "Mathematics",
     "Mechanical Engineering",
     "Medical Technology",
     "Music",
@@ -142,9 +141,6 @@ import logo from "./logo.png";
     "Wildlife Biology",
     "Women’s Studies",
     "Zoology"
-    ,"custodian",
-    "google jobs",
-    "tv"
   ];
 
   const handleMajorChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -183,7 +179,7 @@ useEffect(() => {
             value={selectedMajor || ""}
             className="ml-2"
           >
-            <option value="" disabled>
+            <option value= "" disabled>
               Select a major
             </option>    
             {majors.map((major, index) => (
@@ -195,7 +191,7 @@ useEffect(() => {
         </div>
         {/* Wrap the boxes in a container with horizontal scrolling */}
         <div className="scroll-container">
-          {jobResults &&jobResults.slice(0, 3).map((job, index) => (
+          {jobResults && jobResults.slice(0, 3).map((job, index) => (
             <div key={index} className="placeholder-box">
               <div className="title-box">{job.title}</div>
               <p className="placeholder-text">{job.description  || job.snippet}</p>
