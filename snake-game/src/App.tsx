@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
+import axios from "axios";
 import "./App.css";
 import logo from "./logo.png";
-const App: React.FC = () => {
+
+  const App: React.FC = () => {
   const [selectedMajor, setSelectedMajor] = useState<string | null>(null);
+  const [jobResults, setJobResults] = useState<any[]>([]);
+  const apiKey = "5453bcb93d4fe3f86a1422daf97f29c7ab6be4f792791d89523a60893db38576";
+
   const majors: string[] = [
     "Accounting",
     "Agricultural Business",
@@ -116,7 +121,7 @@ const App: React.FC = () => {
     "Occupational Therapy",
     "Pharmacy",
     "Philosophy",
-    "Physical Therapy",
+    "Physical Therapy jobs",
     "Physics",
     "Political Science",
     "Psychology",
@@ -135,17 +140,36 @@ const App: React.FC = () => {
     "Web Development",
     "Wildlife Biology",
     "Women’s Studies",
-    "Zoology",
+    "Zoology"
   ];
 
   const handleMajorChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedMajor(event.target.value);
   };
 
+useEffect(() => {
+    const fetchJobsByMajor = async () => {
+      if (selectedMajor) {
+        try {
+          const response = await axios.get(
+            `https://cors-anywhere.herokuapp.com/https://serpapi.com/search.json?engine=google&q=${encodeURIComponent(
+              `${selectedMajor}`
+            )}&api_key=${apiKey}`   
+          );
+          setJobResults(response.data.organic_results);
+        } catch (error) {
+          console.error("Error fetching job results:", error);
+        }
+      }
+    };
+
+     fetchJobsByMajor();
+  }, [selectedMajor]);
+  
   return (
     <>
       <div className="logo">
-        <img src={logo}></img>
+        <img src={logo} alt="Logo" />
       </div>
       <div className="container mt-5">
         <div className="text-right mb-3">
@@ -155,27 +179,22 @@ const App: React.FC = () => {
             value={selectedMajor || ""}
             className="ml-2"
           >
-            <option value="" disabled>
+            <option value= "" disabled>
               Select a major
-            </option>
+            </option>    
             {majors.map((major, index) => (
               <option key={index} value={major}>
-                {major}
+                 {major}
               </option>
             ))}
           </select>
         </div>
-{/* Wrap the boxes in a container with horizontal scrolling */}
-<div className="scroll-container">
-          {[...Array(3)].map((_, index) => (
+        {/* Wrap the boxes in a container with horizontal scrolling */}
+        <div className="scroll-container">
+          {jobResults && jobResults.slice(0, 3).map((job, index) => (
             <div key={index} className="placeholder-box">
-              <div className="title-box">Title</div>
-              <p className="placeholder-text">
-                {/* Add long text for vertical scrolling */}
-                {Array(4).fill(
-                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing consectetur adipiscingconsectetur adipiscing elitconsectetur adipiscing elit"
-                )}
-              </p>
+              <div className="title-box">{job.title}</div>
+              <p className="placeholder-text">{job.description  || job.snippet}</p>
             </div>
           ))}
         </div>
@@ -185,3 +204,5 @@ const App: React.FC = () => {
 };
 
 export default App;
+
+ 
