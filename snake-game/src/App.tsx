@@ -1,12 +1,17 @@
-import React, { useState, useEffect} from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import "./App.css";
-import logo from "./logo.png";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import firstimage from "./assets/1.png";
+import secondimage from "./assets/2.png";
+import thirdimage from "./assets/3.png";
+import fourthimage from "./assets/4.png";
+import fifthimage from "./assets/5.png";
+
+
+
 const App: React.FC = () => {
   const [selectedMajor, setSelectedMajor] = useState<string | null>(null);
-  const [jobResults, setJobResults] = useState<any[]>([]);
-  const apiKey = "5453bcb93d4fe3f86a1422daf97f29c7ab6be4f792791d89523a60893db38576";
-
   const majors: string[] = [
     "Accounting",
     "Agricultural Business",
@@ -120,7 +125,7 @@ const App: React.FC = () => {
     "Occupational Therapy",
     "Pharmacy",
     "Philosophy",
-    "Physical Therapy jobs",
+    "Physical Therapy",
     "Physics",
     "Political Science",
     "Psychology",
@@ -139,36 +144,32 @@ const App: React.FC = () => {
     "Web Development",
     "Wildlife Biology",
     "Women’s Studies",
-    "Zoology"
+    "Zoology",
   ];
 
   const handleMajorChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setSelectedMajor(event.target.value);
   };
 
-useEffect(() => {
-    const fetchJobsByMajor = async () => {
-      if (selectedMajor) {
-        try {
-          const response = await axios.get(
-            `https://cors-anywhere.herokuapp.com/https://serpapi.com/search.json?engine=google&q=${encodeURIComponent(
-              `${selectedMajor}`
-            )}&api_key=${apiKey}`   
-          );
-          setJobResults(response.data.organic_results);
-        } catch (error) {
-          console.error("Error fetching job results:", error);
-        }
-      }
-    };
-
-     fetchJobsByMajor();
-  }, [selectedMajor]);
-  
   return (
     <>
-      <div className="logo">
-        <img src={logo}></img>
+      <div className="first-image">
+        <img src={firstimage}></img>
+      </div>
+      <div className="second-image">
+        <img src={secondimage}></img>
+      </div>
+      <div className="third-image">
+        <img src={thirdimage}></img>
+      </div>
+      <div className="fourth-image">
+        <img src={fourthimage}></img>
+      </div>
+      <div className="fifth-image">
+        <img src={fifthimage}></img>
+      </div>
+      <div className="intro-text" >
+        What can I do with ....major?
       </div>
       <div className="container mt-5">
         <div className="text-right mb-3">
@@ -178,24 +179,26 @@ useEffect(() => {
             value={selectedMajor || ""}
             className="ml-2"
           >
-            <option value= "" disabled>
+            <option value="" disabled>
               Select a major
-            </option>    
+            </option>
             {majors.map((major, index) => (
               <option key={index} value={major}>
-                 {major}
+                {major}
               </option>
             ))}
           </select>
         </div>
-{/* Wrap the boxes in a container with horizontal scrolling */}
-<div className="scroll-container">
+        {/* Wrap the boxes in a container with horizontal scrolling */}
+        <div className="scroll-container">
           {[...Array(3)].map((_, index) => (
+            <>
+             <div className="title-box">Title</div>
             <div key={index} className="placeholder-box">
-              <div className="title-box">Title</div>
+             
               <p className="placeholder-text">
                 {/* Add long text for vertical scrolling */}
-                {Array(4).fill(
+                {Array(8).fill(
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing consectetur adipiscingconsectetur adipiscing elitconsectetur adipiscing elit"
                 )}
               </p>
@@ -209,5 +212,3 @@ useEffect(() => {
 };
 
 export default App;
-
- 
