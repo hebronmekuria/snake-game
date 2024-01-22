@@ -19,23 +19,26 @@ body {
 
 select {
   margin-left: 20px;
+  position: relative;
   font-size: 25px;
   font-weight: 300;
   padding: 10px;
+  left:45%;
   border: 1px ;
   border-radius: 5px;
   font-family: 'Arial Unicode MS', 'Arial', sans-serif;
   width: 250px; 
   margin-top: 10px;
   z-index: 1;
+  top: 20%;
 }
 
 .intro-text{
   font-size: 40px;
-  font-weight: 300;
+  font-weight: 400;
   position: absolute;
-  left:41%;
-  top:40%;
+  left:40%;
+  top:15%;
   /* visibility: hidden; */
 }
 

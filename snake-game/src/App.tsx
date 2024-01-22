@@ -169,7 +169,7 @@ const App: React.FC = () => {
         <img src={fifthimage}></img>
       </div>
       <div className="intro-text" >
-        What can I do with ....major?
+       Enter Relevant Title Here
       </div>
       <div className="container mt-5">
         <div className="text-right mb-3">
