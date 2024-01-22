@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./App.css";
-import logo from "./logo.png";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import firstimage from "./assets/1.png";
 import secondimage from "./assets/2.png";
 import thirdimage from "./assets/3.png";
@@ -167,9 +168,8 @@ const App: React.FC = () => {
       <div className="fifth-image">
         <img src={fifthimage}></img>
       </div>
-    
-      <div className="logo">
-        <img src={logo}></img>
+      <div className="intro-text" >
+        What can I do with ....major?
       </div>
       <div className="container mt-5">
         <div className="text-right mb-3">
@@ -192,15 +192,18 @@ const App: React.FC = () => {
         {/* Wrap the boxes in a container with horizontal scrolling */}
         <div className="scroll-container">
           {[...Array(3)].map((_, index) => (
+            <>
+             <div className="title-box">Title</div>
             <div key={index} className="placeholder-box">
-              <div className="title-box">Title</div>
+             
               <p className="placeholder-text">
                 {/* Add long text for vertical scrolling */}
-                {Array(4).fill(
+                {Array(8).fill(
                   "Lorem ipsum dolor sit amet, consectetur adipiscing elit. consectetur adipiscing consectetur adipiscingconsectetur adipiscing elitconsectetur adipiscing elit"
                 )}
               </p>
             </div>
+            </>
           ))}
         </div>
       </div>
